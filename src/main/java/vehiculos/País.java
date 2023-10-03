@@ -1,13 +1,13 @@
 package vehiculos;
-import java.util.ArrayList;
-import java.util.List;
+
+
 import java.util.HashMap;
 
-public class Pais {
+public class País {
 	private String nombre;
-	private static HashMap<Pais, Integer> contador = new HashMap<>();
+	private static HashMap<País, Integer> contador = new HashMap<>();
 	
-	public Pais(String nombre) {
+	public País(String nombre) {
 		this.nombre = nombre;
 	}
 	
@@ -19,7 +19,7 @@ public class Pais {
 		this.nombre = nombre;
 	}
 	
-	public static void incrementarContador(Pais pais) {
+	public static void incrementarContador(País pais) {
 		if (contador.containsKey(pais)) {
 			contador.put(pais, contador.get(pais) + 1);
 		} else {
@@ -27,10 +27,10 @@ public class Pais {
 		}
 	}
 	
-	public static Pais paisMasVendedor() {
-		Pais maxPais = null;
+	public static País paisMasVendedor() {
+		País maxPais = null;
 		int maxCont = 0;
-		for (Pais pais : contador.keySet()) {
+		for (País pais : contador.keySet()) {
 			if (contador.get(pais) > maxCont) {
 				maxPais = pais;
 		        maxCont = contador.get(pais);
