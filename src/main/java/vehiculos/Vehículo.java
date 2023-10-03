@@ -2,17 +2,17 @@ package vehiculos;
 
 public class Vehículo {
 	
-	protected String placa;
-	protected int puertas;
-	protected float velocidadMaxima;
-	protected String nombre;
-	protected float precio;
-	protected float peso;
-	protected String traccion;
-	protected Fabricante fabricante;
-	private static int CantidadVehiculos=0;
+	private String placa;
+	private int puertas;
+	private int velocidadMaxima;
+	private String nombre;
+	private int precio;
+	private int peso;
+	private String traccion;
+	private Fabricante fabricante;
+	protected static int CantidadVehiculos;
 	
-	public Vehículo(String placa, int puertas, float velocidadMaxima, String nombre, float precio, float peso,
+	public Vehículo(String placa, int puertas, int velocidadMaxima, String nombre, int precio, int peso,
 			String traccion, Fabricante fabricante) {
 		this.placa = placa;
 		this.puertas = puertas;
@@ -22,6 +22,7 @@ public class Vehículo {
 		this.peso = peso;
 		this.traccion = traccion;
 		this.fabricante = fabricante;
+		Fabricante.incrementarContador(fabricante);
 		CantidadVehiculos++;
 	}
 	

@@ -5,18 +5,10 @@ public class Camioneta extends Vehículo{
 	private boolean volco;
 	private static int cantidadCamionetas;
 	
-	public Camioneta(String placa, int puertas, float velocidadMaxima, String nombre, float precio, float peso,
+	public Camioneta(String placa, int puertas, int velocidadMaxima, String nombre, int precio, int peso,
 			String traccion, Fabricante fabricante, boolean volco) {
-		super(placa, puertas, velocidadMaxima, nombre, precio, peso, traccion, fabricante);
-		this.placa= placa;
+		super(placa, puertas, 90, nombre, precio, peso, "4X4", fabricante);
 		this.volco = volco;
-		this.puertas = puertas;
-		this.velocidadMaxima = 90;
-		this.traccion = "4X4";
-		this.nombre= nombre;
-		this.precio = precio;
-		this.peso = peso;
-		this.fabricante = fabricante;
 		cantidadCamionetas++;
 
 	}
