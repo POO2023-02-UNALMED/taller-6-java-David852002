@@ -3,11 +3,11 @@ package vehiculos;
 
 import java.util.HashMap;
 
-public class País {
+public class Pais {
 	private String nombre;
-	private static HashMap<País, Integer> contador = new HashMap<>();
+	private static HashMap<Pais, Integer> contador = new HashMap<>();
 	
-	public País(String nombre) {
+	public Pais(String nombre) {
 		this.nombre = nombre;
 	}
 	
@@ -19,7 +19,7 @@ public class País {
 		this.nombre = nombre;
 	}
 	
-	public static void incrementarContador(País pais) {
+	public static void incrementarContador(Pais pais) {
 		if (contador.containsKey(pais)) {
 			contador.put(pais, contador.get(pais) + 1);
 		} else {
@@ -27,10 +27,10 @@ public class País {
 		}
 	}
 	
-	public static País paisMasVendedor() {
-		País maxPais = null;
+	public static Pais paisMasVendedor() {
+		Pais maxPais = null;
 		int maxCont = 0;
-		for (País pais : contador.keySet()) {
+		for (Pais pais : contador.keySet()) {
 			if (contador.get(pais) > maxCont) {
 				maxPais = pais;
 		        maxCont = contador.get(pais);
