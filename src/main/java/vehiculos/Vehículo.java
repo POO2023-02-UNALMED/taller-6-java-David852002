@@ -10,7 +10,7 @@ public class Vehículo {
 	protected float peso;
 	protected String traccion;
 	protected Fabricante fabricante;
-	private static int CantidadVehiculos;
+	private static int CantidadVehiculos=0;
 	
 	public Vehículo(String placa, int puertas, float velocidadMaxima, String nombre, float precio, float peso,
 			String traccion, Fabricante fabricante) {
