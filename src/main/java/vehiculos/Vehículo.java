@@ -1,7 +1,6 @@
 package vehiculos;
 
-public class Vehículo {
-	
+public class Vehiculo {
 	private String placa;
 	private int puertas;
 	private int velocidadMaxima;
@@ -10,10 +9,15 @@ public class Vehículo {
 	private int peso;
 	private String traccion;
 	private Fabricante fabricante;
-	protected static int CantidadVehiculos;
+	protected static int cantidadVehiculos;
+    
+	public static String vehiculosPorTipo() {
+        return "Automoviles: " + Automovil.getCantidad() + "\n" +
+               "Camionetas: " + Camioneta.getCantidad() + "\n" +
+               "Camiones: " + Camion.getCantidad();
+    }
 	
-	public Vehículo(String placa, int puertas, int velocidadMaxima, String nombre, int precio, int peso,
-			String traccion, Fabricante fabricante) {
+	public Vehiculo(String placa, int puertas, int velocidadMaxima, String nombre, int precio, int peso, String traccion, Fabricante fabricante) {
 		this.placa = placa;
 		this.puertas = puertas;
 		this.velocidadMaxima = velocidadMaxima;
@@ -23,89 +27,78 @@ public class Vehículo {
 		this.traccion = traccion;
 		this.fabricante = fabricante;
 		Fabricante.incrementarContador(fabricante);
-		CantidadVehiculos++;
+		cantidadVehiculos++;
 	}
 	
-	public static String vehiculosPorTipo() {
-		return "Automoviles: " + Automóvil.getCantidadAutomoviles()+
-				"\nCamionetas: "+Camioneta.getCantidadCamionetas()+
-				"\nCamiones: "+ Camion.getCantidadCamiones();
-		
-	}
-
 	public String getPlaca() {
-		return placa;
-	}
+        return placa;
+    }
 
-	public void setPlaca(String placa) {
-		this.placa = placa;
-	}
+    public int getPuertas() {
+        return puertas;
+    }
 
-	public int getPuertas() {
-		return puertas;
-	}
+    public int getVelocidadMaxima() {
+        return velocidadMaxima;
+    }
 
-	public void setPuertas(int puertas) {
-		this.puertas = puertas;
-	}
+    public String getNombre() {
+        return nombre;
+    }
 
-	public float getVelocidadMaxima() {
-		return velocidadMaxima;
-	}
+    public int getPrecio() {
+        return precio;
+    }
 
-	public void setVelocidadMaxima(float velocidadMaxima) {
-		this.velocidadMaxima = velocidadMaxima;
-	}
+    public int getPeso() {
+        return peso;
+    }
 
-	public String getNombre() {
-		return nombre;
-	}
+    public String getTraccion() {
+        return traccion;
+    }
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+    public Fabricante getFabricante() {
+        return fabricante;
+    }
 
-	public float getPrecio() {
-		return precio;
-	}
+    public static int getCantidadVehiculos() {
+        return cantidadVehiculos;
+    }
 
-	public void setPrecio(float precio) {
-		this.precio = precio;
-	}
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
 
-	public float getPeso() {
-		return peso;
-	}
+    public void setPuertas(int puertas) {
+        this.puertas = puertas;
+    }
 
-	public void setPeso(float peso) {
-		this.peso = peso;
-	}
+    public void setVelocidadMaxima(int velocidadMaxima) {
+        this.velocidadMaxima = velocidadMaxima;
+    }
 
-	public String getTraccion() {
-		return traccion;
-	}
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-	public void setTraccion(String traccion) {
-		this.traccion = traccion;
-	}
+    public void setPrecio(int precio) {
+        this.precio = precio;
+    }
 
-	public Fabricante getFabricante() {
-		return fabricante;
-	}
+    public void setPeso(int peso) {
+        this.peso = peso;
+    }
 
-	public void setFabricante(Fabricante fabricante) {
-		this.fabricante = fabricante;
-	}
+    public void setTraccion(String traccion) {
+        this.traccion = traccion;
+    }
 
-	public static int getCantidadVehiculos() {
-		return CantidadVehiculos;
-	}
-
-	public static void setCantidadVehiculos(int cantidadVehiculos) {
-		CantidadVehiculos = cantidadVehiculos;
-	}
-	
-	
-
-
+    public void setFabricante(Fabricante fabricante) {
+        this.fabricante = fabricante;
+    }
+    
+    public static void setCantidadVehiculos(int newc) {
+    	cantidadVehiculos = newc;
+    }
 }
