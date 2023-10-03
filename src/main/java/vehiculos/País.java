@@ -5,38 +5,33 @@ import java.util.*;
 public class País {
 
 		private String nombre;
-		private List<País> listado = new ArrayList<>();
-		private País paisMasRepetido;
+		private HashMap<País, Integer> contador = new ArrayList<>();
+		
 		
 		public País(String nombre) {
 			this.nombre = nombre;
-			listado.add(this);
 		}
 		
-		public País paisMasVendedor() {
-			
-			int contador = 0;
-			HashMap<País, Integer> paises = new HashMap<>();
-			for(País x : listado) {
-				if(paises.containsKey(x)) {
-					contador++;
-				}
-				else{
-					paises.put(x,1);
-				}
-				
-				
-				int repeticiones = 0;
-				for(País l : paises.keySet()) {
-					if(repeticiones<paises.get(l)) {
-						paisMasRepetido = l;
-						repeticiones = paises.get(l);
-					}
-				}
+		public static void incrementarContador(Pais pais) {
+			if (contador.containsKey(pais)) {
+				contador.put(pais, contador.get(pais) + 1);
+			} else {
+				contador.put(pais, 1);
 			}
-			
-			return paisMasRepetido;
 		}
+		
+		public static Pais paisMasVendedor() {
+			Pais maxPais = null;
+			int maxCont = 0;
+			for (Pais pais : contador.keySet()) {
+				if (contador.get(pais) > maxCont) {
+					maxPais = pais;
+			        maxCont = contador.get(pais);
+			    }
+			}
+			return maxPais;
+		}
+	}
 		
 		public String getNombre() {
 			return nombre;

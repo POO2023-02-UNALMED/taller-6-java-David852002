@@ -8,40 +8,35 @@ public class Fabricante {
 	
 	private String nombre;
 	private País pais;
-	private List<Fabricante> listado = new ArrayList<>();
-	private int fabricanteMasRepetido;
+	private static HashMap<Fabricante, Integer> contador = new HashMap<>();
 	
 	public Fabricante(String nombre, País pais) {
 		this.nombre = nombre;
 		this.pais = pais;
-		listado.add(this);
 		
+		
+	}
+	public static void incrementarContador(Fabricante fabricante) {
+		if (contador.containsKey(fabricante)) {
+			contador.put(fabricante, contador.get(fabricante) + 1);
+			Pais.incrementarContador(fabricante.getPais());
+	    } else {
+	    	contador.put(fabricante, 1);
+	    }
 	}
 	
-	public Fabricante fabricaMayorVentas() {
-		
-		int contador = 0;
-		HashMap<Fabricante, Integer> fabricantes = new HashMap<>();
-		for(Fabricante x : listado) {
-			if(fabricantes.containsKey(x)) {
-				contador++;
-			}
-			else{
-				fabricantes.put(x,1);
-			}
-			
-			
-			int repeticiones = 0;
-			for(Fabricante l : fabricantes.keySet()) {
-				if(repeticiones<fabricantes.get(l)) {
-					fabricanteMasRepetido = l;
-					repeticiones = fabricantes.get(l);
-				}
-			}
-		}
-		
-		return fabricanteMasRepetido;
+	public static Fabricante fabricaMayorVentas() {
+		Fabricante maxFab = null;
+	    int maxCont = 0;
+	    for (Fabricante fab : contador.keySet()) {
+	    	if (contador.get(fab) > maxCont) {
+	    		maxFab = fab;
+	        	maxCont = contador.get(fab);
+	    	}
+	    }
+	    return maxFab;
 	}
+	
 	
 	
 	
