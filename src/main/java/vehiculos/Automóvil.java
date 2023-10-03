@@ -7,10 +7,8 @@ public class Automóvil extends Vehículo{
 
 	public Automóvil(String placa, int puertas, float velocidadMaxima, String nombre, float precio, float peso,
 			String traccion, Fabricante fabricante, int puestos) {
-		super(placa, puertas, velocidadMaxima, nombre, precio, peso, traccion, fabricante);
-		this.puertas = 4;
-		this.velocidadMaxima = 100;
-		this.traccion = "4X4";
+		super(placa, 4, 100, nombre, precio, peso, "4X4", fabricante);
+		this.puestos = puestos;
 		cantidadAutomoviles++;
 	}
 	
